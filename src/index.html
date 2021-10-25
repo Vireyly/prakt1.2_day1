@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Day 1</title>
+        <style>
+            td,th{
+                text-align: center;
+                border: 1px solid;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "z1">
+            <table>
+                <tr>
+                    <th>Фото</th>
+                    <th>Студенты</th>
+                    <th>Группа</th>
+                    <th>Балл</th>
+                    <th>Сдано</th>
+                </tr>
+                <tr v-for="stud in students">
+                    <td><img v-bind:src="stud.photo" width="50px"></td>
+                    <td>{{stud.name}}</td>
+                    <td>{{stud.group}}</td>
+                    <td>{{stud.mark}}</td>
+                    <td><input type="checkbox" v-bind:checked="stud.isDonePr"></td>
+                </tr>
+            </table>
+            <br>
+			<hr>
+            <h2>Конветр валют</h2>
+            
+            <br>Введите сумму: <input list="number" v-model="start_value">
+            <br>
+            <br>Перевести с  <select list="currency"  v-model="start_ccy">>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="RUR">RUR</option>
+              </select>
+            в <select list="currency" v-model="end_ccy">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="RUR">RUR</option>
+                </select>
+                <button v-on:click="convert">Перевод</button>
+            <br>{{result}}
+        </div>
+       
+        <script src="main.js"></script>
+    </body>
+</html>
